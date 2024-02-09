@@ -12,8 +12,8 @@ func PrintList(list []int) {
 	}
 
 	fmt.Println(list[0])
-
 	PrintList(list[1:])
+
 }
 
 func AddListElements(list []int) int {
@@ -21,5 +21,5 @@ func AddListElements(list []int) int {
 		return 0
 	}
 
-	return list[0] + AddListElements(list[1:])
+	return AddListElements(list[1:]) + list[0]
 }
