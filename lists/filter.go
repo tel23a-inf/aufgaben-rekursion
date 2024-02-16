@@ -10,8 +10,17 @@ func FilterLess(list []int, key int) []int {
 	// Wenn das erste Element kleiner oder gleich key ist, ist das Ergebnis das erste Element
 	// plus die gefilterte Restliste.
 
-	// TODO
-	return list
+	if Empty(list) {
+		return list
+	}
+
+	head, tail := list[0], FilterLess(list[1:], key)
+
+	if head >= key {
+		return tail
+	}
+
+	return append([]int{head}, tail...)
 }
 
 // Liefert eine Liste mit allen Elementen aus list, die echt größer als key sind.
